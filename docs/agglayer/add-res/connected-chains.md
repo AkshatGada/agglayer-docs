@@ -5,7 +5,6 @@ Here's a list of chains connected to the alpha version of the AggLayer:
 | Chain partner           | Chain ID  | 
 --------------------------|--------------|
 | Polygon (Internal)      | 2445         | 
-| Polygon (Katana)        | 3440         | 
 | Orion/Lumia             | 1952959480   | 
 | Silicon                 | 1722641160   | 
 | Hashkey                 | 1304267893   | 
@@ -14,7 +13,6 @@ Here's a list of chains connected to the alpha version of the AggLayer:
 | Moonveil                | 1093502521   | 
 | Wilderworld             | 1417429182   | 
 | zkSom                   | 1750170424   | 
-| Polygon (Katana)        | 65039        | 
 | Astar                   | 3776         | 
 | OKX                     | 196          | 
 | Witnesschain            | 1702448187   | 
