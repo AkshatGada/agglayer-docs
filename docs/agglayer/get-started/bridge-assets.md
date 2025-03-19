@@ -1,11 +1,14 @@
 # Set up your environment for Agglayer
 
+The Agglayer is an interoperability protocol that allows for trustless, cross-chain token transfers and message-passing, as well as more complex operations. ( LXLY.js is a typescript SDK that allows programmatic interaction with the Agglayer protocol )
+
 This guide will help you get familiar with LxLy.js, configure your code to interact with Agglayer chains, and bridge assets from the Ethereum Sepolia testnet to the Polygon zkEVM testnet using the Unified Bridge and lxly.js. <br><br>
 In this guide you will: <br>
-- Configure your environment <br>
-- Bridge your asset <br>
-- Check its status using the Bridge API <br>
-- Use the claim API to claim the transaction on the destination chain.
+
+- **Configure your environment:** Update your configuration in `config.js` and initialize the client in `utils_lxly.js`.
+- **Bridge your asset:** Execute `bridge_asset.js` to initiate the asset transfer.
+- **Check its status using the Transaction API:** Query the API using tools like Postman or cURL to verify the transaction status.
+- **Use the claim API to claim the transaction on the destination chain:** Run `claim_asset.js` to claim your bridged asset.
 
 ## 📖 Table of Contents
 - [Set up your Environment (Prerequisites)](#step-1-set-up-your-environment-prerequisites)
@@ -17,7 +20,7 @@ In this guide you will: <br>
 - [Understand Transaction States](#step-5-understand-transaction-states)
 - [Claim the Bridged Asset (`claim_asset.js`)](#step-6-claim-the-bridged-asset-claim_assetjs)
 - [Confirm the Final Transaction Status](#step-7-confirm-the-final-transaction-status)
-
+- [Troubleshooting Common Issues](#troubleshooting-common-issues)
 
 ---
 Refer to this repository for complete code - [Link](../src)
@@ -32,7 +35,10 @@ Before you begin, ensure that you have the following:
 - **Crypto Wallet:**  
   A Crypto wallet (or similar) configured for testing.
 - **Testnet ETH:**  
-  Acquire test ETH (from a faucet) for the Sepolia testnet.
+  Acquire Test ETH for Sepolia Testnet
+
+1. [Google Web3 Faucet](https://cloud.google.com/application/web3/faucet/ethereum/sepolia)
+2. [Alchemy Faucet](https://www.alchemy.com/faucets/ethereum-sepolia)
 
 ---
 
@@ -41,6 +47,10 @@ Before you begin, ensure that you have the following:
 ### 2.1 Update Your `config.js` File
 
 Make sure your `config.js` contains the correct network settings, RPC endpoints, bridge contract addresses, and account details. (See the [Template File](../src/config.js) for a sample configuration). The reference `config.js` contains public RPCs as a placeholder, but it is recommended to get private RPCs for best results.
+- **Alchemy:** Sign up at [Alchemy](https://www.alchemy.com/) for dedicated Ethereum and Polygon endpoints.
+- **Infura:** Create an account at [Infura](https://infura.io/) to access robust Ethereum nodes.
+- **QuickNode:** Another provider, [QuickNode](https://www.quicknode.com/), offers private RPC endpoints.
+
 
 ### 2.2 Set Up the Utility File: `utils_lxly.js`
 
@@ -223,3 +233,15 @@ node claim_asset.js
 
 After claiming the asset, verify the final state using the Bridge API:
 Use Postman or a curl command to ensure that the transaction state has been updated to **CLAIMED**.
+
+
+## Troubleshooting Common Issues
+
+- **Network Configuration Errors:**  
+  Verify that your network IDs, RPC endpoints, and bridge contract addresses in `config.js` are correct.
+
+- **Insufficient Gas/Balance:**  
+  Ensure that your wallet has enough testnet ETH to cover gas fees. Check your wallet balance and verify against the network requirements.
+
+- **API Key Issues:**  
+  When checking transaction status, ensure that your API key (if required) is valid and correctly appended to your API request URL.
